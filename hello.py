@@ -155,4 +155,4 @@ def dataone():
 
 @app.route('/combine')
 def json():
-    return inalData()
+    return finalData()
