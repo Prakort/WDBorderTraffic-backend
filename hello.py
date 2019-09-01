@@ -32,7 +32,7 @@ def index(request):
     return HttpResponse('<pre>' + r.text + '</pre>')
 
 @app.route('/data')
-def dataone:
+def dataone():
     return data()
 
 @app.route('/json',methods=['GET'])
