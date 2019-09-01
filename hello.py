@@ -9,12 +9,12 @@ import json as JSON
 app = Flask(__name__)
 def finalData():
     def com(time,lane):
-    if lane == 0:
-        return 'Closed'
-    elif lane == 1:
-        return str(time)+' min/'+str(lane)+ ' lane'
-    else:
-        return str(time)+' min/'+str(lane)+' lanes'
+        if lane == 0:
+            return 'Closed'
+        elif lane == 1:
+            return str(time)+' min/'+str(lane)+ ' lane'
+        else:
+            return str(time)+' min/'+str(lane)+' lanes'
 
     api ="https://api.dwtunnel.com/api/traffic/conditionspublic"
     res = requests.get(api)
@@ -133,7 +133,7 @@ def data():
     arr = []
     for string in table.strings:
         arr.append(repr(string))
-    print(arr)
+    #print(arr)
     return jsonify({'arr': arr})
 
 quarks = [{'name': 'up', 'charge': '+2/3'},
