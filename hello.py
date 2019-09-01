@@ -3,13 +3,13 @@ from flask import request
 from flask import jsonify
 from bs4 import BeautifulSoup
 import requests
-import json
+import json as JSON
 app = Flask(__name__)
 def tunnelData():
     api ="https://api.dwtunnel.com/api/traffic/conditionspublic"
     res = requests.get(api)
     soup = BeautifulSoup(res.content, 'html.parser')
-    y = json.loads(soup.text)
+    y = JSON.loads(soup.text)
     print(y)
     return y
 def data():
