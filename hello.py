@@ -30,6 +30,6 @@ def data(request):
     for string in table.strings:
         arr.append(repr(string))
     return arr
-@app.rout('/json',methods=['GET'])
+@app.route('/json',methods=['GET'])
 def json():
     return jsonify({'quarks': quarks})
