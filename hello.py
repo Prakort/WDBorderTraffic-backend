@@ -13,7 +13,7 @@ def index(request):
     print(r.text)
     return HttpResponse('<pre>' + r.text + '</pre>')
 
-@app.route('data')
+@app.route('/data')
 def data():
     other = "https://apps.cbp.gov/bwt/mobile.asp?action=n&pn=3800&fbclid=IwAR0wQLJXEDPuLpnvYudjQ2OkrR_9OcxYBm_U1YvJCqm5SXjNH12dYGEm8Cc"
     res = requests.get(other)
