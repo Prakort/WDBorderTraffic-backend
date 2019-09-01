@@ -7,6 +7,32 @@ from urllib.request import Request, urlopen
 import requests
 import json as JSON
 app = Flask(__name__)
+def compare(bridge, tunnel):
+    try:
+        tn = re.split('/', tunnel)
+        bd = re.split('/',bridge)
+        tn = tn[0].lower()
+        bd = bd[0].lower()
+
+        if(tn == 'no delay' and bd == 'no delay'):
+            return ('No delay in either bridge or tunnel')
+        elif(tn == 'no delay' and bd != 'no delay'):
+            return 'There is no delay in DW Tunnel'
+        elif(tn != 'no delay' and bd == 'no delay'):
+            return 'There is no wait time in Ambassador Bridge'
+        else:
+            tn = re.sub("[^0-9]", '', tn)
+            bd = re.sub("[^0-9]", '', bd)
+            a = int(tn)
+            b = int(bd)
+            if(a > b):
+                return 'Ambassador Bridge has less wait time than DW Tunnel'
+            elif(a < b):
+                return 'DW Tunnel has less wait time than Ambassador Bridge'
+            else:
+                return 'Both bridge and tunnel have same wait times'
+    except:
+        return 'We do not have enough information to compare'
 def finalData():
     def com(time,lane):
         if lane == 0:
@@ -116,6 +142,12 @@ def finalData():
     data["B_Com_US_CA"]=B_Com_US_CA
     data["B_Nexus_CA_US"]=B_Nexus_CA_US
     data["B_Nexus_US_CA"]=B_Nexus_US_CA
+    data['COMP_CAR_US_CA']=compare(data["B_CAR_US_CA"],data["T_CAR_US_CA"])
+    data['COMP_CAR_CA_US']=compare(data["B_CAR_CA_US"],data["T_CAR_CA_US"])
+    data['COMP_Com_US_CA']=compare(data["B_Com_US_CA"],data["T_Com_US_CA"])
+    data['COMP_Com_CA_US']=compare(data["B_Com_CA_US"],data["T_Com_CA_US"])
+    data['COMP_Nexus_US_CA']=compare(data["B_Nexus_US_CA"],data["T_Nexus_US_CA"])
+    data['COMP_Nexus_CA_US']=compare(data["B_Nexus_CA_US"],data["T_Nexus_CA_US"])
 
     return data
 
