@@ -10,6 +10,7 @@ def tunnelData():
     res = requests.get(api)
     soup = BeautifulSoup(res.content, 'html.parser')
     y = json.loads(soup.text)
+    print(y)
     return y
 def data():
     other = "https://apps.cbp.gov/bwt/mobile.asp?action=n&pn=3800&fbclid=IwAR0wQLJXEDPuLpnvYudjQ2OkrR_9OcxYBm_U1YvJCqm5SXjNH12dYGEm8Cc"
