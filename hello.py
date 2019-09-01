@@ -19,7 +19,7 @@ def finalData():
     api ="https://api.dwtunnel.com/api/traffic/conditionspublic"
     res = requests.get(api)
     soup1 = soup(res.content, 'html.parser')
-    y = json.loads(soup1.text)
+    y = JSON.loads(soup1.text)
     j ={"USCA":y[0],"CAUS":y[1]}
         
     tUSCA = j['USCA']['DetailsTravelTime']
