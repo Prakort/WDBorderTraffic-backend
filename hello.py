@@ -2,7 +2,7 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 from bs4 import BeautifulSoup as soup
-import rep
+import re
 from urllib.request import Request, urlopen
 import requests
 import json as JSON
