@@ -3,8 +3,14 @@ from flask import request
 from flask import jsonify
 from bs4 import BeautifulSoup
 import requests
+import json
 app = Flask(__name__)
-
+def tunnelData():
+    api ="https://api.dwtunnel.com/api/traffic/conditionspublic"
+    res = requests.get(api)
+    soup = BeautifulSoup(res.content, 'html.parser')
+    y = json.loads(soup.text)
+    return y
 def data():
     other = "https://apps.cbp.gov/bwt/mobile.asp?action=n&pn=3800&fbclid=IwAR0wQLJXEDPuLpnvYudjQ2OkrR_9OcxYBm_U1YvJCqm5SXjNH12dYGEm8Cc"
     res = requests.get(other)
@@ -25,11 +31,9 @@ quarks = [{'name': 'up', 'charge': '+2/3'},
 def hello():
     return 'Hello World!'
 
-@app.route('/hello',methods=['GET'])
-def index(request):
-    r = requests.get('http://httpbin.org/status/418')
-    print(r.text)
-    return HttpResponse('<pre>' + r.text + '</pre>')
+@app.route('/tunnel')
+def sendtunnel():
+    return tunnelData()
 
 @app.route('/data')
 def dataone():
