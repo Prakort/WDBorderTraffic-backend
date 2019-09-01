@@ -25,7 +25,7 @@ quarks = [{'name': 'up', 'charge': '+2/3'},
 def hello():
     return 'Hello World!'
 
-@app.route('/hello')
+@app.route('/hello',methods=['GET'])
 def index(request):
     r = requests.get('http://httpbin.org/status/418')
     print(r.text)
