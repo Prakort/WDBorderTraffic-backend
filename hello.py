@@ -101,7 +101,7 @@ def finalData():
     # Entering Canada time
     Enter_CA_TIME = (page_soup.select('time')[0].text)[11:16]
     # Entering USA time
-    Enter_US_TIME = (page_soup.select('td')[1].text)[5:9]
+    Enter_US_TIME = (page_soup.select('td')[1].text)[5:10]
 
     # Entering Canada personal vehicles 
     Enter_US_personal_time = bridge_time(page_soup.select('td')[1].text)
