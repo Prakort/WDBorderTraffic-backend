@@ -148,8 +148,8 @@ def finalData():
     data['COMP_Com_CA_US']=compare(data["B_Com_CA_US"],data["T_Com_CA_US"])
     data['COMP_Nexus_US_CA']=compare(data["B_Nexus_US_CA"],data["T_Nexus_US_CA"])
     data['COMP_Nexus_CA_US']=compare(data["B_Nexus_CA_US"],data["T_Nexus_CA_US"])
-    data['B_Time_CA_US']=Enter_US_TIME
-    data['B_Time_US_CA']=Enter_CA_TIME
+    data['B_Time_CA_US']=Enter_CA_TIME
+    data['B_Time_US_CA']=Enter_US_TIME
     data['T_Time']=re.sub('[0-9]+/[0-9]+/[0-9]+\s','',j['CAUS']["DetailsDate"])
 
     return data
