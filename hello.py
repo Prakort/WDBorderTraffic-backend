@@ -130,7 +130,7 @@ def finalData():
     Enter_US_NEXUS_lane = bridge_personal_lane(page_soup.select('td')[4].text)
 
     B_CAR_CA_US = Enter_US_personal_time+'/'+Enter_US_personal_lane
-    B_CAR_US_CA = Enter_US_personal_time
+    B_CAR_US_CA = Enter_CA_personal_time
     B_Com_CA_US = Enter_US_commercial_time+'/'+Enter_US_commerical_lane
     B_Com_US_CA = Enter_CA_commercial_time
     B_Nexus_CA_US = Enter_US_NEXUS+'/'+Enter_US_NEXUS_lane
