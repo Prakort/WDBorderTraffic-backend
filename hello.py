@@ -91,7 +91,7 @@ def finalData():
         Closed_lane = a.find('Closed')
         if(close_lane == -1 and Closed_lane == -1):
             lane = a.find('lane')    
-            return '' if lane == -1 else a[lane-2:lane]+('lane open' if a[lane-2:lane] == '1 ' else 'lanes open')
+            return '' if lane == -1 else a[lane-2:lane]+('lane' if a[lane-2:lane] == '1 ' else 'lanes')
         else:
             return 'Lanes closed'
     ###def bridge_personal_lane(a):
