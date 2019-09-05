@@ -49,6 +49,8 @@ def finalData():
     j ={"USCA":y[0],"CAUS":y[1]}
         
     tUSCA = j['USCA']['DetailsTravelTime']
+    # use this for < and >
+    string_tUSCA = j['USCA']['DetailsTravelTime']
     tUSCA = re.sub("[^0-9]",'',tUSCA)
 
     T_CAR_US_CA = com(tUSCA,j['USCA']['CarLaneCount'])
@@ -57,6 +59,8 @@ def finalData():
     #print("USCA-->"+T_CAR_US_CA + '--'+T_Nexus_US_CA+'--'+T_Com_US_CA)
 
     tCAUS = j['CAUS']['DetailsTravelTime']
+    # use this for < and >
+    string_tCAUS = j['CAUS']['DetailsTravelTime']
     tCAUS = re.sub("[^0-9]",'',tCAUS)
     T_CAR_CA_US = com(tUSCA,j['CAUS']['CarLaneCount'])
     T_Nexus_CA_US = com(tUSCA,j['CAUS']['NexusLaneCount'])
