@@ -86,6 +86,15 @@ def finalData():
             no_delay = a.find('No delay')
             No_delay = a.find('no delay')
             return a[delay-7:delay] if (no_delay == -1 and No_delay == -1) else 'No delay'
+        
+    def bridge_time_CA(a):
+        if(a == ''):
+            return 'No Data Available'
+        else:
+            delay = a.find('delay')
+            no_delay = a.find('No delay')
+            No_delay = a.find('no delay')
+            return a if (no_delay == -1 and No_delay == -1) else 'No delay'
     def bridge_personal_lane(a):
         close_lane = a.find('closed')
         Closed_lane = a.find('Closed')
@@ -106,12 +115,12 @@ def finalData():
     # Entering Canada personal vehicles 
     Enter_US_personal_time = bridge_time(page_soup.select('td')[1].text)
     # Entering Canada personal vehicles 
-    Enter_CA_personal_time = bridge_time(page_soup.select('td')[2].text)
+    Enter_CA_personal_time = bridge_time_CA(page_soup.select('td')[2].text)
 
     # Entering Canada commercial vehicles 
     Enter_US_commercial_time = bridge_time(page_soup.select('td')[10].text)
     # Entering Canada commercial vehicles 
-    Enter_CA_commercial_time = bridge_time(page_soup.select('td')[11].text)
+    Enter_CA_commercial_time = bridge_time_CA(page_soup.select('td')[11].text)
 
     # Entering Canada personal vehicles 
     Enter_US_personal_lane = bridge_personal_lane(page_soup.select('td')[1].text)
@@ -124,7 +133,7 @@ def finalData():
     Enter_CA_commercial_lane = bridge_personal_lane(page_soup.select('td')[11].text)
 
     # Entering Canada NEXUS 
-    Enter_CA_NEXUS = bridge_time(page_soup.select('td')[5].text)
+    Enter_CA_NEXUS = bridge_time_CA(page_soup.select('td')[5].text)
     # Entering USA NEXUS 
     Enter_US_NEXUS = bridge_time(page_soup.select('td')[4].text)
     Enter_US_NEXUS_lane = bridge_personal_lane(page_soup.select('td')[4].text)
